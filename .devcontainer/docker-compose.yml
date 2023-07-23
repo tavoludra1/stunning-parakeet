@@ -30,26 +30,18 @@ services:
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    image: mysql:latest
+    image: mariadb:10.4
     restart: unless-stopped
     volumes:
-      - mysql-data:/var/lib/mysql
+      - mariadb-data:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: mysql
-      MYSQL_USER: mysql
-      MYSQL_PASSWORD: mysql
-      MYSQL_ALLOW_ EMPTY_ PASSWORD: 1 # equivalent to True
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    ports:
-      8001:80
-    environment:
-      PMA_HOST=db
-      PMA_PORT=3306
+      MYSQL_ROOT_PASSWORD: mariadb
+      MYSQL_DATABASE: mariadb
+      MYSQL_USER: mariadb
+      MYSQL_PASSWORD: mariadb
 
     # Add "forwardPorts": ["3306"] to **devcontainer.json** to forward MariaDB locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
   
 volumes:
-  mysql-data:
+  mariadb-data:
