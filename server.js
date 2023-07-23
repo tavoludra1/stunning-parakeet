@@ -1,8 +1,14 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const { logger } = require('./middleware/logger'); // importar el middleware
 const PORT = process.env.PORT || 3500; // cambiar el puerto en producción
 
+// adicionar middleware
+app.use(logger);
+
+// adicionar json lectura
+app.use(express.json());
 
 // adicionar ruta publica
 app.use('/', express.static(path.join(__dirname, 'public')));
