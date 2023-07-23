@@ -1,20 +1,16 @@
-const { options } = require('../routes/root');
 const allowedOrigins = require('./allowedOrigins');
 
-// configurar cors como barrera de seguridad
 const corsOptions = {
-    origin: function (origin, callback) {
-        if (allowedOrigins.indexOf(origin) !== -1 || !originl) {
-            // permitir peticiones desde el dominio
+    origin: (origin, callback) => {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
             callback(null, true);
         } else {
-            // bloquear peticiones desde el dominio
-            callback(new Error('No permitido por CORS'));
+            callback(new Error('Dominio no permitido por CORS'));
         }
     },
-    credentials: true, // habilitar credenciales
-    optionsSuccessStatus: 200 // alguno buscadores heradados (IE11, varios SmartTVs), reemplaza al 204
+    credentials: true, // para que los cookies se envien a través de CORS
+    optionsSuccessStatus: 200  // algunos navegadores (Chrome) requieren un status
 }
 
-// exportar el módulo
+// exportar la barrera de seguridad cors
 module.exports = corsOptions;

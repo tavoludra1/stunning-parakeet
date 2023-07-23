@@ -1,7 +1,6 @@
 // dominios que pueden realizar peticiones a nuestra API
 const allowedOrigins = [
     'http://localhost:3000',
-    'http://localhost:3500',
     'http://localhost:4000',
     'https://somosusta.com'
 ];
