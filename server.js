@@ -4,6 +4,11 @@ const path = require('path');
 const PORT = process.env.PORT || 3500; // cambiar el puerto en producción
 
 
+// adicionar ruta publica
+app.use('/', express.static(path.join(__dirname, 'public')));
+
+// adicionar control de rutas
+app.use('/', require('./routes/root'));
 
 
 
