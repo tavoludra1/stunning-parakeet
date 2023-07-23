@@ -6,6 +6,9 @@
         "start": "node index.js",
         "dev": "nodemon index.js"
     },
+    "keywords": [
+        "API", "NodeJS"
+    ],
     "author": {
         "name": "Gustavo Toro",
         "email": "tavoludra@email.com"
