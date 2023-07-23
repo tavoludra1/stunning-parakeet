@@ -1,4 +1,4 @@
-require('dotenv').config; // importar dotenv
+require('dotenv').config(); // importar dotenv
 const express = require('express');
 const app = express();
 const path = require('path');
