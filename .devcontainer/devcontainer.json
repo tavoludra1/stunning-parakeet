@@ -1,0 +1,76 @@
+// Update the VARIANT arg in docker-compose.yml to pick a PHP version
+{
+	"name": "PHP & MariaDB (Community)",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {
+				// settings
+				   "editor.fontSize": 15,
+    				   "terminal.integrated.fontSize": 14,
+    				   "workbench.colorTheme": "GitHub Dark Dimmed",
+                                   "editor.formatOnSave": true,
+				   "php.validate.executablePath": "/usr/local/bin/php"
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"ms-vscode.vscode-typescript-tslint-plugin",
+				"octref.vetur",
+				"stylelint.vscode-stylelint",
+				// install copilot extension
+				"github.copilot",
+				// install laravel artisan extension
+				"ryannaddy.laravel-artisan",
+				// install laravel blade snippets extension winnie lin
+				"onecentlin.laravel-blade",
+				// install laravel blade spacer extension austenc
+				"austenc.laravel-blade-spacer",
+				// install laravel extra intellisense extension
+				"amiralizadeh9480.laravel-extra-intellisense",
+				// install php intelliphense extension
+				"bmewburn.vscode-intelephense-client",
+				// install laravel goto view extension codingyu
+				"codingyu.laravel-goto-view",
+				// install laravel-goto-controller extension
+				"stef-k.laravel-goto-controller",
+				// install laravel snippets extension winnie lin
+				"onecentlin.laravel5-snippets",
+				// install laravel-goto-components extension naoray
+				"naoray.laravel-goto-components",
+				// install php docBlocker extension neil brayfield
+				"neilbrayfield.php-docblocker",
+				// install php doc Commenter extension rex shi
+				"rexshi.phpdoc-comment-vscode-plugin",
+				// install php namespace resolver extension mehedi hassan
+				"mehedidracula.php-namespace-resolver",
+				// install .env extension mikestead
+				"mikestead.dotenv",
+				// install paste json as code extension quicktype
+				"quicktype.quicktype",
+				// install tailwinds css intellisense extension tailwind labs
+				"bradlc.vscode-tailwindcss",
+				// install databaseclient extension cweijan
+				"cweijan.vscode-mysql-client2",
+				"xdebug.php-debug",
+				"bmewburn.vscode-intelephense-client",
+				"mrmlnc.vscode-apache"
+			]
+		}
+	},
+
+	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
+	"forwardPorts": [8080, 3306],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html",
+
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
