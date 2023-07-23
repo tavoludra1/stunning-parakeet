@@ -9,6 +9,11 @@ const cors = require('cors'); // importar el middleware cors
 const corsOptions = require('./config/corsOptions'); // importar la barrera de seguridad cors
 const PORT = process.env.PORT || 3500; // cambiar el puerto en producción
 
+// adicionar dotenv
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
 // adicionar middleware
 app.use(logger);
 
