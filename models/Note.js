@@ -1,4 +1,6 @@
+const { id } = require('date-fns/locale');
 const mongoose = require('mongoose');
+const autoIncrement = require('mongoose-auto-increment')(mongoose); // importar mongoose-auto-increment
 
 const noteSchema = new mongoose.Schema({
     title: {
@@ -21,6 +23,13 @@ const noteSchema = new mongoose.Schema({
 
 }, {
     timestamps: true // agrega createdAt y updatedAt
+});
+
+// autoincrementar el ticket con el plugin mongoose-auto-increment
+noteSchema.plugin(autoIncrement.plugin, {
+    inc_field: 'ticket',
+    id: 'ticketNums',
+    start_seq: 500
 });
 
 // exportar el modelo
