@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const { logger } = require('./middleware/logger'); // importar el middleware
+const errorHandler = require('./middleware/errorHandler'); // importar el middleware
 const PORT = process.env.PORT || 3500; // cambiar el puerto en producción
 
 // adicionar middleware
@@ -28,7 +29,8 @@ app.all('*', (req, res) => {
     }
 });
 
-
+// adicionar middleware de error antes de iniciar el servidor 
+app.use(errorHandler);
 
 
 // verificamos si estamos en producción o en desarrollo
