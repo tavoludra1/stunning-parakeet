@@ -7,7 +7,14 @@ Se utilizan métodos para los requerimientos:
 - **PUT/PATCH** -> ACTUALIZAR
 - **DELETE** -> ELIMINAR
 
-## HOSTORIAS DE USUARIO
+## Middleware
+Funciones que ayudan a realizar alguna acción sobre los requerimientos antes de ingresar al controlador.
+- Existen 3 tipos:
+    - Built-in
+    - Custom
+    - 3rd party
+
+## HISTORIAS DE USUARIO
 Formato específico para la historia de usuario:
 ```
 Como una [persona], [necesita/quiere] [hacer] algo, porque [razón]
